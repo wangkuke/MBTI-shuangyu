@@ -71,20 +71,22 @@ export default function EnglishTestPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
-      <TestContent
-        currentQuestion={currentQuestion}
-        setCurrentQuestion={setCurrentQuestion}
-        answers={answers}
-        setAnswers={setAnswers}
-        testVersion={testVersion}
-        setTestVersion={setTestVersion}
-        showVersionSelection={showVersionSelection}
-        setShowVersionSelection={setShowVersionSelection}
-        showMessage={showMessage}
-        setShowMessage={setShowMessage}
-        currentQuestions={currentQuestions}
-        setCurrentQuestions={setCurrentQuestions}
-      />
+      <Suspense fallback={<div>Loading test...</div>}>
+        <TestContent
+          currentQuestion={currentQuestion}
+          setCurrentQuestion={setCurrentQuestion}
+          answers={answers}
+          setAnswers={setAnswers}
+          testVersion={testVersion}
+          setTestVersion={setTestVersion}
+          showVersionSelection={showVersionSelection}
+          setShowVersionSelection={setShowVersionSelection}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+          currentQuestions={currentQuestions}
+          setCurrentQuestions={setCurrentQuestions}
+        />
+      </Suspense>
     </div>
   )
 }
